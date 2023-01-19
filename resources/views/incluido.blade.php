@@ -1,0 +1,1 @@
+<h1>Vista incluida desde otra vista</h1>
