@@ -14,13 +14,15 @@
 <!--Codigo php en Blade-->
 @php
 
+
+
     $contador=1;
 
 @endphp
 <!--Fin codigo php en Blade-->
 
 <h4>{{$contador}}</h4>
-<hr>
+<hr>     
 <hr>
 
 

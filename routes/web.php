@@ -32,6 +32,7 @@ Route::get('/template/stact',[TemplateController::class,'template_stack'])->name
 //FORM FORMULARIOS
 Route::get('/form',[formController::class,'Form_Class'])->name('Form');
 Route::get('/form/simple',[formController::class,'Form_Class_Simple'])->name('Simple');
+Route::post('/form/simple',[formController::class,'Form_Class_Simple_Post'])->name('Simple_Post');
 Route::get('/form/flash',[formController::class,'Form_Class_Flash'])->name('Flash');
 Route::get('/form/upload',[formController::class,'Form_Class_Upload'])->name('Upload');
 
