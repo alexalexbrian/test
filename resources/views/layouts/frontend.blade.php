@@ -89,7 +89,8 @@
         <a class="link-secondary" href="#">Subscribe</a>
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#"><img src="{{asset('/img/fix.png')}}" width="40" alt="" /></a>
+        <a class="blog-header-logo text-dark" href="{{route('home_inicio')}}">
+          <img src="{{asset('/img/fix.png')}}" width="40" alt="" /></a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" aria-label="Search">
@@ -102,10 +103,10 @@
 
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-      <a class="p-2 link-secondary" href="#">World</a>
-      <a class="p-2 link-secondary" href="#">U.S.</a>
-      <a class="p-2 link-secondary" href="#">Technology</a>
-      <a class="p-2 link-secondary" href="#">Design</a>
+      <a class="p-2 link-secondary" href="{{route('home_inicio')}}">Home</a>
+      <a class="p-2 link-secondary" href="#">pdf</a>
+      <a class="p-2 link-secondary" href="{{route('Form')}}">form</a>
+      <a class="p-2 link-secondary" href="{{route('Picture')}}">Picture</a>
       <a class="p-2 link-secondary" href="#">Culture</a>
       <a class="p-2 link-secondary" href="#">Business</a>
       <a class="p-2 link-secondary" href="#">Politics</a>

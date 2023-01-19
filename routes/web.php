@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\TemplateController;
-
+use App\Http\Controllers\formController;
 
 
 /*
@@ -25,7 +25,18 @@ use App\Http\Controllers\TemplateController;
 
 
 Route::get('/template',[TemplateController::class,'template_inicio']);
-Route::get('/template/stact',[TemplateController::class,'template_stack']);
+Route::get('/template/stact',[TemplateController::class,'template_stack'])->name('Picture');
+
+
+
+//FORM FORMULARIOS
+Route::get('/form',[formController::class,'Form_Class'])->name('Form');
+Route::get('/form/simple',[formController::class,'Form_Class_Simple'])->name('Simple');
+Route::get('/form/flash',[formController::class,'Form_Class_Flash'])->name('Flash');
+Route::get('/form/upload',[formController::class,'Form_Class_Upload'])->name('Upload');
+
+
+
 
 
                                         //Metodo
