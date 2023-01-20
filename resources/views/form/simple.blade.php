@@ -5,10 +5,26 @@
 <h3 class="pb-4 mb-4 fst-italic border-bottom">FORM SIMPLE</h3>
 
 <div class="p-4 p-md-5 mb-4 text-white rounded bg-light">
-<form action="{{route('Simple_Post')}}" method="POST" name="form">
+<form action="{{route('Simple_Post')}}" method="post" name="form">
 
-    <!--Component-->
+    <!--Validate data with component-->
     <x-flash/>
+
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label text-dark">País</label>
+        <select name="pais" id="pais" class="form-control">
+            <option value="">Seleccione ...</option>
+
+            @foreach ($countries as $item)
+            <option value="{{$item['id']}}">{{$item['name']}}</option>
+            @endforeach
+
+        </select>
+      
+    </div>
+
+
     <div class="mb-3">
         <label for="nombre" class="form-label text-dark">Nombre</label>
         <input type="text" name="nombre" id="nombre" class="form-control" value="{{'nombre'}}" />
@@ -36,6 +52,27 @@
     </div>
 
 
+
+    <div class="mb-3">
+        
+        <label for="intereses" class="form-label text-dark">Intereses</label>
+        <div class="form-check">
+            @foreach ($interests as $item)
+                <input type="checkbox" name="interests_{{$loop->index}}" id="interests_{{$loop->index}}" class="form-check-input" value="{{$item['id']}}" />
+                <label for="" class="form-check-label text-secondary">{{$item['name']}}</label><br>
+            @endforeach
+
+      
+      
+    </div>
+    </div>
+    
+
+
+    
+
+
+    <!--token formulario-->
     {{ csrf_field() }}
     <input type="submit" value="Enviar" class="btn btn-primary">
 

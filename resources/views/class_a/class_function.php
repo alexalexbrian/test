@@ -1,16 +1,8 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+class class_function{
 
 
-class HomeController extends Controller
-{
-   
-
-    public function home_inicio(){
-        
+    public function Arra_Countries(){
 
         $paises=array(
             array("nombre"=>"Albania","dominio"=>"cl"),
@@ -66,25 +58,10 @@ class HomeController extends Controller
         );
 
 
-        
-        $valor="Mi valor  para pasarlo a la vista 2";
-        $pasar_valores_a_la_vista="Mi valor  para pasarlo a la vista 1";
-        $numero=12;
-        //Ejemplo 1 de pasar valor 
-       
-        //return view("home",['valor'=>$pasar_valores_a_la_vista]);
-        //Ejemplo 2 de pasar valor 
-        return view("home",compact('valor','numero','paises'));
+        return $paises;
 
 
 
-    }
-
-
-    public function home_parametros($id,$slug){
-
-
-        echo "id=".$id."   slug=".$slug .' | '. $_GET['page'];
 
 
     }
@@ -92,13 +69,12 @@ class HomeController extends Controller
 
 
 
-    public function Incluido(){
 
-
-        return view('incluido');
-
-
-    }
 
 
 }
+
+
+
+
+?>
