@@ -158,27 +158,98 @@ class formController extends Controller
     }
 
     public function Form_Class_Flash(){
-
-
        return view('form.flash');
-
-
     }
 
+    public function Form_Class_Flash2(Request $request){
+
+        $request->session()->flash('css','primary');
+        $request->session()->flash('mensaje','Mostrar un mensaje o una alerta mediante sesión');
+        return redirect()->route('Flash3'); //Enviamos el mensaje flash a la vista FLASH 3
+        /*
+        $request->session()->flash('css1','succes');
+        $request->session()->flash('mensaje1',' Selectores CSS - Aprende sobre desarrollo web | MDN');
+        return redirect()->route('Flash3'); //Enviamos el mensaje flash a la vista FLASH 3
+        */
+     }
+
+     public function Form_Class_Flash3(){
+        return view('form.flash3');
+     }
 
     public function Form_Class_Upload(){
 
-
+        
         return view('form.upload');
-
-
-
-
     }
 
 
+    public function Form_Class_Upload_post(Request $request){
 
+        //print_r($_FILES);
 
+        $request->validate([
 
+            'foto'=>'required | mimes:jpg,png|max:2040'
 
+        ],[
+
+            'foto.required'=>'Try to upload a photo',
+            'foto.mimes'=>'You must upload a jpg or png photo.'
+
+        ]);
+       
+       //print_r($_FILES);
+        switch($_FILES['foto']['type']){
+
+            case 'image/png':
+                //echo "ok_1";
+                $archivo='Foto_'.time().".png";
+            break;
+            
+            case 'image/jpeg':
+                //echo "ok_2";
+                $archivo='Foto_'.time().".jpg";
+            break;
+        }
+
+        //echo $archivo;
+        //echo $_FILES['foto']['tmp_name'];
+        //echo "<br>";
+
+        $destination="uploads/picture/";
+        if(file_exists($destination)){
+            //echo "si existe ";
+            if(move_uploaded_file($_FILES['foto']['tmp_name'],$destination.$archivo)){
+                
+                $request->session()->flash('css','primary');
+                $request->session()->flash('mensaje','Image uploaded successfully');
+                //echo "Movido correctamente";
+        
+                $request->session()->flash('name_img',''.$archivo.'');
+                return redirect()->route('Upload'); //Enviamos el mensaje flash a la vista FLASH 3
+                //echo "Movido correctamente";
+        
+                }else{
+                $request->session()->flash('css','danger');
+                $request->session()->flash('mensaje','An error occurred when moving the image');
+                return redirect()->route('Upload'); //Enviamos el mensaje flash a la vista FLASH 3
+                //echo "Movido correctamente";
+                }
+
+        }else{
+       // echo "No existe la ruta";
+       
+        if(!mkdir($destination, 0777, true)) {
+            die('Fallo al crear las carpetas...');
+        }else{
+
+            $request->session()->flash('css','warning');
+            $request->session()->flash('mensaje','Upps!! Intenta de nuevo se ha creado una nueva carpeta para almacenar las imágenes.');
+            return redirect()->route('Upload'); //Enviamos el mensaje flash a la vista FLASH 3
+
+        }
+        
+        }
+    }
 }

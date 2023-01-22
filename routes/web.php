@@ -32,13 +32,20 @@ Route::get('/template/stact',[TemplateController::class,'template_stack'])->name
 //FORM FORMULARIOS
 Route::get('/form',[formController::class,'Form_Class'])->name('Form');
 Route::get('/form/simple',[formController::class,'Form_Class_Simple'])->name('Simple');
+//Importante usamos el metodo post para recibir los valores, usamos la misma URL
 Route::post('/form/simple',[formController::class,'Form_Class_Simple_Post'])->name('Simple_Post');
-Route::get('/form/flash',[formController::class,'Form_Class_Flash'])->name('Flash');
+//Fin FORM FORMULARIOS
+
 Route::get('/form/upload',[formController::class,'Form_Class_Upload'])->name('Upload');
+Route::post('/form/upload_post',[formController::class,'Form_Class_Upload_post'])->name('Upload_post');
 
 
 
-
+//Url para el ejemplo de crear FLASH
+Route::get('/form/flash',[formController::class,'Form_Class_Flash'])->name('Flash');
+Route::get('/form/flash2',[formController::class,'Form_Class_Flash2'])->name('Flash2');
+Route::get('/form/flash3',[formController::class,'Form_Class_Flash3'])->name('Flash3');
+//Fin Url para el ejemplo de crear FLASH
 
                                         //Metodo
 Route::get('/',[HomeController::class,'home_inicio'])->name('home_inicio');

@@ -104,17 +104,10 @@
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
       <a class="p-2 link-secondary" href="{{route('home_inicio')}}">Home</a>
-      <a class="p-2 link-secondary" href="#">pdf</a>
-      <a class="p-2 link-secondary" href="{{route('Form')}}">form</a>
+      <a class="p-2 link-secondary" href="#">Pdf</a>
+      <a class="p-2 link-secondary" href="{{route('Form')}}">Form</a>
       <a class="p-2 link-secondary" href="{{route('Picture')}}">Picture</a>
-      <a class="p-2 link-secondary" href="#">Culture</a>
-      <a class="p-2 link-secondary" href="#">Business</a>
-      <a class="p-2 link-secondary" href="#">Politics</a>
-      <a class="p-2 link-secondary" href="#">Opinion</a>
-      <a class="p-2 link-secondary" href="#">Science</a>
-      <a class="p-2 link-secondary" href="#">Health</a>
-      <a class="p-2 link-secondary" href="#">Style</a>
-      <a class="p-2 link-secondary" href="#">Travel</a>
+      <a class="p-2 link-secondary" href="{{route('Upload')}}">Upload</a>
     </nav>
   </div>
 </div>
