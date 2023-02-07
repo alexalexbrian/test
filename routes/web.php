@@ -7,8 +7,8 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\formController;
-
-
+use App\Http\Controllers\HelperControler;
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +21,11 @@ use App\Http\Controllers\formController;
 */
 
 
+Route::get('/email', [EmailController::class, 'ViewMail'])->name('ViewMail');
+Route::get('/email/send/', [EmailController::class, 'ViewMailSend'])->name('ViewMailSend');
 
+
+Route::get('/helper',[HelperControler::class,'Helper_Inicio'])->name('Helper');
 
 
 Route::get('/template',[TemplateController::class,'template_inicio']);

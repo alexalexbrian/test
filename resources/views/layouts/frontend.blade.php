@@ -107,7 +107,9 @@
       <a class="p-2 link-secondary" href="#">Pdf</a>
       <a class="p-2 link-secondary" href="{{route('Form')}}">Form</a>
       <a class="p-2 link-secondary" href="{{route('Picture')}}">Picture</a>
+      <a class="p-2 link-secondary" href="{{route('Helper')}}">Helper</a>
       <a class="p-2 link-secondary" href="{{route('Upload')}}">Upload</a>
+      <a class="p-2 link-secondary" href="{{route('ViewMail')}}">Email</a>
     </nav>
   </div>
 </div>
