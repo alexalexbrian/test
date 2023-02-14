@@ -9,6 +9,9 @@ use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\formController;
 use App\Http\Controllers\HelperControler;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\BdControllers;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,11 +30,8 @@ Route::get('/email/send/', [EmailController::class, 'ViewMailSend'])->name('View
 
 Route::get('/helper',[HelperControler::class,'Helper_Inicio'])->name('Helper');
 
-
 Route::get('/template',[TemplateController::class,'template_inicio']);
 Route::get('/template/stact',[TemplateController::class,'template_stack'])->name('Picture');
-
-
 
 //FORM FORMULARIOS
 Route::get('/form',[formController::class,'Form_Class'])->name('Form');
@@ -42,8 +42,6 @@ Route::post('/form/simple',[formController::class,'Form_Class_Simple_Post'])->na
 
 Route::get('/form/upload',[formController::class,'Form_Class_Upload'])->name('Upload');
 Route::post('/form/upload_post',[formController::class,'Form_Class_Upload_post'])->name('Upload_post');
-
-
 
 //Url para el ejemplo de crear FLASH
 Route::get('/form/flash',[formController::class,'Form_Class_Flash'])->name('Flash');
@@ -57,14 +55,53 @@ Route::get('/',[HomeController::class,'home_inicio'])->name('home_inicio');
                                         //Metodo
 Route::get('/incluido',[HomeController::class,'Incluido'])->name('home_incluido');
 
-
-
 //Route::get('/',[HomeController::class,'home_inicio'])->name('home_inicio');
-
 
            //podemos recibir un valor y slug
                                                       //Metodo                           
 Route::get('/parametros/{id}/{slug}',[HomeController::class,'home_parametros'])->name('home_parametros');
+
+Route::get('/bd', [BdControllers::class, 'bd'])->name('bd_index');
+Route::get('/bd/categorias', [BdControllers::class, 'bd_categorias'])->name('bd_categorias');
+
+//Ver formulario categoría
+Route::get('/bd/categorias/add', [BdControllers::class, 'bd_categorias_add'])->name('bd_categorias_add');
+//Guardar categorías
+Route::post('/bd/categorias/add', [BdControllers::class, 'bd_categorias_add_post'])->name('bd_categorias_add_post');
+//Editar categorias
+Route::get('/bd/categorias/add/{id}', [BdControllers::class, 'bd_categorias_edit'])->name('bd_categorias_edit');
+Route::post('/bd/categorias/add/{id}', [BdControllers::class, 'bd_categorias_edit_post'])->name('bd_categorias_edit_post');
+//Borrar categorias 
+Route::get('/bd/categorias/delete/{id}', [BdControllers::class, 'bd_categorias_delete'])->name('bd_categorias_delete');
+//Listar productos
+Route::get('/bd/productos', [BdControllers::class, 'bd_productos'])->name('bd_productos');
+
+//Agregar productos
+Route::get('/bd/productos/add', [BdControllers::class, 'bd_productos_add'])->name('bd_productos_add');
+Route::post('/bd/productos/add', [BdControllers::class, 'bd_productos_add_post'])->name('bd_productos_add_post');
+
+//Editar producto de la base de datos
+Route::get('/bd/productos/edit/{id}', [BdControllers::class, 'bd_productos_edit'])->name('bd_productos_edit');
+Route::post('/bd/productos/edit/{id}', [BdControllers::class, 'bd_productos_edit_post'])->name('bd_productos_edit_post');
+
+//Borrar producto
+Route::get('/bd/productos/delete/{id}', [BdControllers::class, 'bd_productos_delete'])->name('bd_productos_delete');
+
+
+//Filtrar productos
+Route::get('/bd/productos/{id}', [BdControllers::class, 'bd_productos_categorias'])->name('bd_productos_categorias');
+
+
+
+
+//Listar foto
+Route::get('/bd/productos/fotos/{id}', [BdControllers::class, 'bd_productos_fotos'])->name('bd_productos_fotos');
+//Subir la foto usando la misma ruta
+Route::post('/bd/productos/fotos/{id}', [BdControllers::class, 'bd_productos_fotos_post'])->name('bd_productos_fotos_post');
+
+
+//Borrar foto de la base de datos
+Route::get('/bd/productos/fotos/detele/{id_foto}/{id_pro}', [BdControllers::class, 'bd_productos_fotos_detele'])->name('bd_productos_fotos_detele');
 
 
 

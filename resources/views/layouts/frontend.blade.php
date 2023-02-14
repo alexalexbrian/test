@@ -11,6 +11,7 @@
 <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('/css/jquery-confirm.css')}}" rel="stylesheet">
 <link href="{{asset('/fontawesome-free-6.2.1-web/css/all.css')}}" rel="stylesheet">
+<link href="{{asset('/css/jquery.alerts.min.css')}}" rel="stylesheet">
 @stack('css') <!---->
     <!-- Favicons     -->
 <link rel="icon" href="{{asset('/img/fix.png')}}">
@@ -109,6 +110,7 @@
       <a class="p-2 link-secondary" href="{{route('Picture')}}">Picture</a>
       <a class="p-2 link-secondary" href="{{route('Helper')}}">Helper</a>
       <a class="p-2 link-secondary" href="{{route('Upload')}}">Upload</a>
+      <a class="p-2 link-secondary" href="{{route('bd_index')}}">Bd</a>
       <a class="p-2 link-secondary" href="{{route('ViewMail')}}">Email</a>
     </nav>
   </div>
@@ -140,6 +142,7 @@
 <script src="{{asset('/js/jquery-3.6.3.min.js')}}"></script>
 <script src="{{asset('/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('/js/jquery-confirm.js')}}"></script>
+<script src="{{asset('/js/jquery-alerts.min.js')}}"></script>
 <script src="{{asset('/js/funciones.js')}}"></script>
 @stack('js') <!---->
 </body>
