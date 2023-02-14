@@ -8,6 +8,7 @@ use App\Models\CategoriasModel;
 use App\Models\ProductosModel;
 use App\Models\ProductosFotosModel;
 
+
 class BdControllers extends Controller
 {
     //
@@ -17,7 +18,6 @@ class BdControllers extends Controller
         return view("bd.bd");
 
     }
-
 
     //Inicio para ver las categorias
     public function bd_categorias(){
@@ -136,7 +136,8 @@ class BdControllers extends Controller
 
     }
 
-    //Listar los productos de la base de datos
+
+    //Listar productos de la base de datos
     public function bd_productos(){
 
 
@@ -147,6 +148,61 @@ class BdControllers extends Controller
 
 
     }
+
+
+    //Páginacion de productos
+    public function bd_paginacion(){
+
+
+        $datos=ProductosModel::orderBy('id','desc')->paginate(env('PAGINACION'));
+        return view("bd.bd_paginancion", compact('datos'));
+
+
+
+
+    }
+
+
+
+    public function bd_productos_buscador(){
+
+
+
+        if(isset($_GET['b'])){
+
+            //Ejemplo 
+            //Select * from productos where nombre like '%b%'
+            $b = $_GET['b'];
+            $datos = ProductosModel::where('nombre','like','%'.$b.'%')->orderBy('id','desc')->get();
+
+        }else{
+
+            $b ="";
+            $datos = ProductosModel::orderBy('id','desc')->get();
+
+        }
+
+
+
+        
+        return view("bd.buscador", compact("datos","b"));
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

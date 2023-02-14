@@ -5,8 +5,8 @@
 @section('content')
 
 <main class="container">
+<h3>Utiles   <small style="font-size: 12px;">utiles.blade.php</small></h3>
 
-<h3 title="eloquent">Mysql <small style="font-size: 12px;">bd_blade.php</small></h3>
 <!--Codigo php en Blade-->
 @php
 
@@ -14,6 +14,9 @@
 
 @endphp
 <!--Fin codigo php en Blade-->
+
+
+
 
 <div class="clearfix">&nbsp; </div>
 
@@ -24,13 +27,12 @@
         
       </div>
       <div class="col-sm">
-        
 
         <ul class="list-group list-unstyled">
-            <li> <a href="{{route('bd_categorias')}}" class="list-group-item list-group-item-action active rounded-1">Categorías</a> </li>
-            <li> <a href="{{route('bd_productos')}}" class="list-group-item list-group-item-action rounded rounded-1">Productos</a> </li>
-            <li> <a href="{{route('bd_productos_paginacion')}}" class="list-group-item list-group-item-action rounded rounded-1">Paginación</a> </li>
-            <li> <a href="{{route('bd_buscador')}}" class="list-group-item list-group-item-action rounded rounded-1">Buscador</a> </li>
+            <li> <a href="{{route('utiles_pdf')}}" class="list-group-item list-group-item-action rounded-1">Reporte PDF</a> </li>
+            <li> <a href="{{route('utiles_excel')}}" class="list-group-item list-group-item-action rounded rounded-1">Reporte excel</a> </li>
+            <li> <a href="" class="list-group-item list-group-item-action rounded rounded-1 active">Cliente Rest con Guzzlehttp</a> </li>
+            <li> <a href="" class="list-group-item list-group-item-action rounded rounded-1">Cliente SOAP </a> </li>
         </ul>
 
 
@@ -46,7 +48,6 @@
 
 
   <div class="clearfix">&nbsp; </div>
-
 
 
 

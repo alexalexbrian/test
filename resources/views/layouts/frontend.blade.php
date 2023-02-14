@@ -112,6 +112,9 @@
       <a class="p-2 link-secondary" href="{{route('Upload')}}">Upload</a>
       <a class="p-2 link-secondary" href="{{route('bd_index')}}">Bd</a>
       <a class="p-2 link-secondary" href="{{route('ViewMail')}}">Email</a>
+      <a class="p-2 link-secondary" href="{{route('utiles_inicio')}}">Utiles</a>
+
+      
     </nav>
   </div>
 </div>

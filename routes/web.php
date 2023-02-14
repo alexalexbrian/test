@@ -10,7 +10,7 @@ use App\Http\Controllers\formController;
 use App\Http\Controllers\HelperControler;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\BdControllers;
-
+use App\Http\Controllers\UtilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,9 +91,6 @@ Route::get('/bd/productos/delete/{id}', [BdControllers::class, 'bd_productos_del
 //Filtrar productos
 Route::get('/bd/productos/{id}', [BdControllers::class, 'bd_productos_categorias'])->name('bd_productos_categorias');
 
-
-
-
 //Listar foto
 Route::get('/bd/productos/fotos/{id}', [BdControllers::class, 'bd_productos_fotos'])->name('bd_productos_fotos');
 //Subir la foto usando la misma ruta
@@ -102,6 +99,23 @@ Route::post('/bd/productos/fotos/{id}', [BdControllers::class, 'bd_productos_fot
 
 //Borrar foto de la base de datos
 Route::get('/bd/productos/fotos/detele/{id_foto}/{id_pro}', [BdControllers::class, 'bd_productos_fotos_detele'])->name('bd_productos_fotos_detele');
+
+
+//Paginación 
+Route::get('/bd/produc/paginacion',[BdControllers::class,'bd_paginacion'])->name('bd_productos_paginacion');
+
+
+
+//Paginación 
+Route::get('/bd/buscador',[BdControllers::class,'bd_productos_buscador'])->name('bd_buscador');
+
+
+//Utilidades
+Route::get('/utiles',[UtilesController::class,'utiles_inicio'])->name('utiles_inicio');
+
+Route::get('/utiles/pdf',[UtilesController::class,'utiles_pdf'])->name('utiles_pdf');
+
+Route::get('/utiles/excel',[UtilesController::class,'utiles_excel'])->name('utiles_excel');
 
 
 

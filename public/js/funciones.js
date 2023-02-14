@@ -30,7 +30,7 @@ function carga_ajax_get(ruta, valor1, div) {
     {
         return false;
     }
-     window.location ="/pruebas/ejemplo_1/public/bd/buscador?b="+document.getElementById('b').value;
+     window.location ="http://127.0.0.1:8000/bd/buscador?b="+document.getElementById('b').value;
  }
  function soloNumeros(evt) {
      key = (document.all) ? evt.keyCode : evt.which;

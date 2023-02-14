@@ -5,7 +5,7 @@
 @section('content')
 
 <main class="container">
-<h2> Modelo </h2>
+<h3>Modelo   <small style="font-size: 12px;">.blade.php</small></h3>
 
 <!--Codigo php en Blade-->
 @php
