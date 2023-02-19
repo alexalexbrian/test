@@ -11,7 +11,7 @@ use App\Http\Controllers\HelperControler;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\BdControllers;
 use App\Http\Controllers\UtilesController;
-
+use App\Http\Controllers\AccesoController; //Controlador para iniciar sesión
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -116,6 +116,17 @@ Route::get('/utiles',[UtilesController::class,'utiles_inicio'])->name('utiles_in
 Route::get('/utiles/pdf',[UtilesController::class,'utiles_pdf'])->name('utiles_pdf');
 
 Route::get('/utiles/excel',[UtilesController::class,'utiles_excel'])->name('utiles_excel');
+
+
+
+Route::get('/acceso/login', [AccesoController::class, 'acceso_login'])->name('acceso_login');
+Route::post('/acceso/login', [AccesoController::class, 'acceso_login_post'])->name('acceso_login_post');
+
+Route::get('/acceso/registro', [AccesoController::class, 'registro_login'])->name('registro_login');
+Route::post('/acceso/registro', [AccesoController::class, 'registro_login_post'])->name('registro_login_post');
+
+Route::get('/acceso/logout', [AccesoController::class, 'cerrar_sesion'])->name('cerrar_sesion');
+
 
 
 

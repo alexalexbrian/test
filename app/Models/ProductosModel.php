@@ -25,7 +25,7 @@ class ProductosModel extends Model
   
     public function categorias(){
 
-
+                              
         return $this->belongsTo(CategoriasModel::class);
 
 
