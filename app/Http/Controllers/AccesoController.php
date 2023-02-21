@@ -1,4 +1,5 @@
 <?php
+//log in
 
 namespace App\Http\Controllers;
 
@@ -35,7 +36,7 @@ class AccesoController extends Controller
 
     
 
-      
+        //Validamos los datos del formulario para iniciar sesión
         $validated = $request->validate([                 
             'correo'=>'required|email:rfc,dns', 
             'password'=>'required|min:6'
@@ -49,7 +50,7 @@ class AccesoController extends Controller
 
 
       
-
+        //Usamos el metodo authentication de laravel 
         if(Auth::attempt(['email' => $request->input('correo'),'password' => $request->input('password')])){
 
             //Obtenemos el id del usuario logeado
@@ -63,9 +64,13 @@ class AccesoController extends Controller
             //Obtenemos los datos del usuario
             $usuario = UserMetadata::where(['users_id'=> Auth::id()])->first();
             //Creamos una session perzonalizada
-            session(['users_metadata_id'=>$usuario->id]);
-            session(['perfil_id'=>$usuario->id]);
-            session(['perfil'=>$usuario->id]);
+            //session(['users_metadata_id'=>$usuario->id]);
+            //session(['perfil_id'=>$usuario->id]);
+            //session(['perfil'=>$usuario->id]);
+
+            session(['users_metadata_id' => $usuario->id]);
+            session(['perfil_id' => $usuario->perfil_id]);
+            session(['perfil' => $usuario->perfil->nombre]);
 
             return redirect()->intended('/template');
 
@@ -159,11 +164,19 @@ class AccesoController extends Controller
 
 
 
-    public function cerrar_sesion(){
+    public function cerrar_sesion(Request $request){
 
-
-        return view("acceso.logout");
-
+        
+        //cerramos la sessión
+        Auth::logout();
+        //Destruir la sesion personalizada usando el Request $request  y tambien lo usamos para redireccionar al usuario
+        $request->session()->forget('user_metadata_id');
+        $request->session()->forget('perfil_id');
+        $request->session()->forget('perfil');
+        $request->session()->flash('css','success');
+        $request->session()->flash('mensaje','Your account has been successfully closed');
+        return redirect()->route('acceso_login'); //Enviamos el mensaje flash a la vista FLASH 3
+        
     }
 
 

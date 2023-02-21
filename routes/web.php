@@ -12,6 +12,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\BdControllers;
 use App\Http\Controllers\UtilesController;
 use App\Http\Controllers\AccesoController; //Controlador para iniciar sesión
+use App\Http\Controllers\PrivateController;//Rutas protegidas o paginas protegidas. 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,11 +67,14 @@ Route::get('/bd/categorias', [BdControllers::class, 'bd_categorias'])->name('bd_
 
 //Ver formulario categoría
 Route::get('/bd/categorias/add', [BdControllers::class, 'bd_categorias_add'])->name('bd_categorias_add');
+
 //Guardar categorías
 Route::post('/bd/categorias/add', [BdControllers::class, 'bd_categorias_add_post'])->name('bd_categorias_add_post');
+
 //Editar categorias
 Route::get('/bd/categorias/add/{id}', [BdControllers::class, 'bd_categorias_edit'])->name('bd_categorias_edit');
 Route::post('/bd/categorias/add/{id}', [BdControllers::class, 'bd_categorias_edit_post'])->name('bd_categorias_edit_post');
+
 //Borrar categorias 
 Route::get('/bd/categorias/delete/{id}', [BdControllers::class, 'bd_categorias_delete'])->name('bd_categorias_delete');
 //Listar productos
@@ -87,7 +91,6 @@ Route::post('/bd/productos/edit/{id}', [BdControllers::class, 'bd_productos_edit
 //Borrar producto
 Route::get('/bd/productos/delete/{id}', [BdControllers::class, 'bd_productos_delete'])->name('bd_productos_delete');
 
-
 //Filtrar productos
 Route::get('/bd/productos/{id}', [BdControllers::class, 'bd_productos_categorias'])->name('bd_productos_categorias');
 
@@ -96,36 +99,39 @@ Route::get('/bd/productos/fotos/{id}', [BdControllers::class, 'bd_productos_foto
 //Subir la foto usando la misma ruta
 Route::post('/bd/productos/fotos/{id}', [BdControllers::class, 'bd_productos_fotos_post'])->name('bd_productos_fotos_post');
 
-
 //Borrar foto de la base de datos
 Route::get('/bd/productos/fotos/detele/{id_foto}/{id_pro}', [BdControllers::class, 'bd_productos_fotos_detele'])->name('bd_productos_fotos_detele');
-
 
 //Paginación 
 Route::get('/bd/produc/paginacion',[BdControllers::class,'bd_paginacion'])->name('bd_productos_paginacion');
 
-
-
-//Paginación 
+//Buscador
 Route::get('/bd/buscador',[BdControllers::class,'bd_productos_buscador'])->name('bd_buscador');
-
 
 //Utilidades
 Route::get('/utiles',[UtilesController::class,'utiles_inicio'])->name('utiles_inicio');
 
+//Generar pdf 
 Route::get('/utiles/pdf',[UtilesController::class,'utiles_pdf'])->name('utiles_pdf');
 
+//Generar excel 
 Route::get('/utiles/excel',[UtilesController::class,'utiles_excel'])->name('utiles_excel');
 
-
-
+//Iniciar sesion 
 Route::get('/acceso/login', [AccesoController::class, 'acceso_login'])->name('acceso_login');
 Route::post('/acceso/login', [AccesoController::class, 'acceso_login_post'])->name('acceso_login_post');
 
+//Registro de usuario
 Route::get('/acceso/registro', [AccesoController::class, 'registro_login'])->name('registro_login');
 Route::post('/acceso/registro', [AccesoController::class, 'registro_login_post'])->name('registro_login_post');
 
+//cerrar sesión
 Route::get('/acceso/logout', [AccesoController::class, 'cerrar_sesion'])->name('cerrar_sesion');
+
+//Rutas protegidas paginas web protegidas .
+Route::get('/private-1', [PrivateController::class, 'Page_private_1'])->name('private1');
+Route::get('/private-2', [PrivateController::class, 'Page_private_2'])->name('private2');
+
 
 
 

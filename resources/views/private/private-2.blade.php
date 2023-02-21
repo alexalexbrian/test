@@ -5,7 +5,7 @@
 @section('content')
 
 <main class="container">
-<h4>Modelo   <small style="font-size: 12px;">logout.blade.php</small></h4>
+<h3>Private 2   <small style="font-size: 12px;">private2.blade.php</small></h3>
 
 <!--Codigo php en Blade-->
 @php
@@ -15,8 +15,8 @@
 @endphp
 <!--Fin codigo php en Blade-->
 
-cerrar  session
 
+private 2
 
 
 

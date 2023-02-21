@@ -87,7 +87,28 @@
   <header class="blog-header lh-1 py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
+
+        <!--si el usuario esta logeado--> 
+      
+        @if(Auth::check())
+        <a class="link-secondary" style="text-decoration: none;" href="javascript:void(0);">Hola!! {{Auth::user()->name}}</a>
+        <!--si NO ESTA logeado MOSTRAMOS ESTO--> 
+        @else
         <a class="link-secondary" href="{{route('registro_login')}}">Subscribe</a>
+        @endif
+
+        <!--sesión personalizada-->
+        {{@session('perfil')}}
+
+
+
+        
+
+
+
+
+
+
       </div>
       <div class="col-4 text-center">
         <a class="blog-header-logo text-dark" href="{{route('home_inicio')}}">
@@ -100,11 +121,28 @@
             <title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
         </a>
 
-        <a class="link-secondary" href="{{route('cerrar_sesion')}}" aria-label="Search">
-          Sign off
-        </a>
 
-        <a class="btn btn-sm btn-outline-secondary" href="{{route('acceso_login')}}">Sign up</a>
+      <!--si el usuario esta logeado-->  
+      @if(Auth::check())
+      <a onclick="confirmaAlert('Really desea cerrar the session?','{{route('cerrar_sesion')}}');" class="link-secondary" href="javascript:void();" aria-label="Search">Sign off</a>
+      
+      <!--si NO ESTA logeado MOSTRAMOS ESTO--> 
+      @else
+      <a class="btn btn-sm btn-outline-secondary" href="{{route('acceso_login')}}">Sign up</a>
+      @endif
+
+
+
+
+
+
+
+
+       
+
+
+
+
       </div>
     </div>
   </header>
@@ -119,6 +157,8 @@
       <a class="p-2 link-secondary" href="{{route('Upload')}}">Upload</a>
       <a class="p-2 link-secondary" href="{{route('bd_index')}}">Bd</a>
       <a class="p-2 link-secondary" href="{{route('ViewMail')}}">Email</a>
+      <a class="p-2 link-secondary" href="{{route('private1')}}">Private 1</a>
+      <a class="p-2 link-secondary" href="{{route('private2')}}">Private 2</a>
       <a class="p-2 link-secondary" href="{{route('utiles_inicio')}}">Utiles</a>
 
       
